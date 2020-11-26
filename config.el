@@ -26,6 +26,44 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function:
 (setq doom-theme 'wheatgrass)
+(setq fancy-splash-image (concat doom-private-dir "banners/Evergreen-primary-tag--full-color400.png"))
+(defun evergreen-draw-ascii-banner ()
+  (mapc (lambda (line)
+          (insert (propertize (+doom-dashboard--center +doom-dashboard--width line)
+                              'face 'doom-dashboard-banner) " ")
+          (insert "\n"))
+        '("___________________________________________________________________"
+          "|                                                                 |"
+          "|                 .,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.                |"
+          "|               .,'..                          ..,'               |"
+          "|               ,,    .....              .       .,.              |"
+          "|               ,,   .,...,.            .,.      .,.              |"
+          "|              .,'   .,...,.           .,,,      .,.              |"
+          "|              .,.    .'''.            ,,,,.     .,.              |"
+          "|              .,.                    ',,,,'.    .,.              |"
+          "|              .,.           .',,,,,'.,,,,,,'    .,.              |"
+          "|              .,.         .,,,,....',,,,,,,.    .,.              |"
+          "|              .,.      .',..,,'     ',,,,,,'.   .,.              |"
+          "|              .,.   .',,...,'.,     .,,,,,,,'.   ,'              |"
+          "|              .,..'...   '.  '.    .',,,,,,,'''..,,              |"
+          "|              .,.          .'.      .,,,,,,,. ..,,'              |"
+          "|              .,'........          .,,,,,,,,.   .,.              |"
+          "|              .,,,,,,,,,'          .,,,,,,,,,.  .,.              |"
+          "|              .,,,,,,,,,'..       .,,,,,,,,,'   .,.              |"
+          "|               .,,,,,,,,,,,,,''''.''''.',.......,'               |"
+          "|                ..',,,,,,,,,,,,,,,,,,,,,,,,,,,,'.                |"
+          "|                        ................                         |"
+          "|                                                                 |"
+          "|                                                                 |"
+          "|    ___  __   __  ___   _ __   __ _  _ __   ___    ___   _ __    |"
+          "|   / _ \\ \\ \\ / / / _ \\ | '__| / _` || '__| / _ \\  / _ \\ | '_ \\   |"
+          "|  |  __/  \\ V / |  __/ | |   | (_| || |   |  __/ |  __/ | | | |  |"
+          "|   \\___|   \\_/   \\___| |_|    \\__, ||_|    \\___|  \\___| |_| |_|  |"
+          "|                              |___/                              |"
+          "|_________________________________________________________________|")))
+
+
+(setq +doom-dashboard-ascii-banner-fn #'evergreen-draw-ascii-banner)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -34,7 +72,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
